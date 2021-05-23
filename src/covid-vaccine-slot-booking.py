@@ -36,8 +36,10 @@ def main():
             print("\n=================================== Note ===================================\n")
             print(f"Info from perhaps a previous run already exists in {filename} in this directory.")
             print(f"IMPORTANT: If this is your first time running this version of the application, DO NOT USE THE FILE!")
-            try_file = input("Would you like to see the details and confirm to proceed? (y/n Default y): ")
-            try_file = try_file if try_file else 'y'
+            #try_file = input("Would you like to see the details and confirm to proceed? (y/n Default y): ")
+            #try_file = try_file if try_file else 'y'
+
+            try_file='y'
 
             if try_file == 'y':
                 collected_details = get_saved_user_info(filename)
@@ -87,7 +89,8 @@ def main():
                 print('Token is INVALID.')
                 token_valid = False
 
-                tryOTP = input('Try for a new Token? (y/n Default y): ')
+                #tryOTP = input('Try for a new Token? (y/n Default y): ')
+                tryOTP='y'
                 if tryOTP.lower() == 'y' or not tryOTP:
                     if not mobile:
                         mobile = input("Enter the registered mobile number: ")
