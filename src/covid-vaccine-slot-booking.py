@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import copy
+from time import sleep
 from types import SimpleNamespace
 import requests, sys, argparse, os, datetime
 from utils import generate_token_OTP, check_and_book, beep, BENEFICIARIES_URL, WARNING_BEEP_DURATION, \
@@ -46,8 +47,9 @@ def main():
                 print("\n================================= Info =================================\n")
                 display_info_dict(collected_details)
 
-                file_acceptable = input("\nProceed with above info? (y/n Default n): ")
-                file_acceptable = file_acceptable if file_acceptable else 'n'
+                #file_acceptable = input("\nProceed with above info? (y/n Default n): ")
+                #file_acceptable = file_acceptable if file_acceptable else 'n'
+                file_acceptable = 'y'
 
                 if file_acceptable != 'y':
                     collected_details = collect_user_details(request_header)
@@ -86,6 +88,7 @@ def main():
             else:
                 # if token invalid, regenerate OTP and new token
                 beep(WARNING_BEEP_DURATION[0], WARNING_BEEP_DURATION[1])
+                sleep(10)
                 print('Token is INVALID.')
                 token_valid = False
 
